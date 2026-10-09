@@ -32,6 +32,7 @@
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
           <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
           <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
@@ -159,6 +160,29 @@
             <ul><li>Websites &amp; e-commerce</li><li>Flutter apps for iOS &amp; Android</li><li>Custom software &amp; APIs</li><li>Hosting, care &amp; updates</li></ul>
           </article>
         </div>
+      </div>
+      <div class="mt-4"><a class="btn-tr btn-tr-ghost" href="#pricing">View Pricing →</a></div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="block" id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="sec-head">
+        <div><span class="eyebrow">Clear, practical pricing</span><h2 id="pricing-title">Transparent Pricing for Chennai Businesses</h2></div>
+        <p>Choose individual services or bundled packages. All prices are in INR and exclude GST. Custom quotations are provided after understanding your exact requirements.</p>
+      </div>
+      <p class="pricing-intro">From individual creative services to complete digital launches, each option has clear inclusions and a straightforward next step.</p>
+      <div class="pricing-tabs" role="tablist" aria-label="Pricing categories">
+        <button class="pricing-tab" id="pricing-tab-services" type="button" role="tab" aria-selected="true" aria-controls="pricing-content" tabindex="0" data-pricing-tab="services">À La Carte</button>
+        <button class="pricing-tab" id="pricing-tab-marketing" type="button" role="tab" aria-selected="false" aria-controls="pricing-content" tabindex="-1" data-pricing-tab="marketing">Marketing Packages</button>
+        <button class="pricing-tab" id="pricing-tab-launch" type="button" role="tab" aria-selected="false" aria-controls="pricing-content" tabindex="-1" data-pricing-tab="launch">Launch Packages</button>
+        <button class="pricing-tab" id="pricing-tab-events" type="button" role="tab" aria-selected="false" aria-controls="pricing-content" tabindex="-1" data-pricing-tab="events">Events</button>
+      </div>
+      <div id="pricing-content" role="tabpanel" aria-labelledby="pricing-tab-services" tabindex="0" aria-live="polite"></div>
+      <div class="pricing-notes">
+        <p>Website, app and event prices are starting prices. Final quotation depends on scope, features, content, integrations and event requirements.</p>
+        <p>Ad spend, third-party tools, hosting, domains, print production and event vendor costs are billed separately at actual cost. GST is applicable as per Indian tax regulations.</p>
       </div>
     </div>
   </section>
@@ -336,7 +360,9 @@
               <div class="col-sm-6"><label class="form-label" for="f-biz">Business</label><input class="form-control" id="f-biz" name="biz" autocomplete="organization" placeholder="Café Kaapi, Adyar"></div>
               <div class="col-sm-6"><label class="form-label" for="f-mail">Email or phone</label><input class="form-control" id="f-mail" name="contact" required placeholder="you@business.com"></div>
               <div class="col-sm-6"><label class="form-label" for="f-svc">I need help with</label>
-                <select class="form-select" id="f-svc" name="svc"><option>Digital marketing</option><option>Graphic design &amp; branding</option><option>Event management</option><option>Website or app</option><option>A mix of these</option></select></div>
+                <select class="form-select" id="f-svc" name="svc"><option>Website / App</option><option>Digital Marketing</option><option>Graphic Design</option><option>Product Photography</option><option>Event Management</option><option>Multiple Services</option></select></div>
+              <div class="col-sm-6"><label class="form-label" for="f-budget">Project budget</label>
+                <select class="form-select" id="f-budget" name="budget"><option>Under ₹25,000</option><option>₹25,000–₹75,000</option><option>₹75,000–₹2,00,000</option><option>₹2,00,000+</option></select></div>
               <div class="col-12"><label class="form-label" for="f-msg">Tell us about it</label><textarea class="form-control" id="f-msg" name="msg" placeholder="We're opening a second outlet in March and need launch posts, a menu redesign and a small opening event."></textarea></div>
               <div class="col-12"><button class="btn-tr btn-tr-primary" type="submit">Prepare my enquiry →</button></div>
               <div class="col-12"><div id="out" hidden></div></div>
@@ -385,6 +411,7 @@
 </footer>
 
 <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/js/pricing.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

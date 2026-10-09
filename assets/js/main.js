@@ -158,6 +158,95 @@
     b.addEventListener('click', function () { copy(b.dataset.copy, b); });
   });
 
+  /* ---------- Pricing ---------- */
+  function formatINR(amount) {
+    return '₹' + Number(amount).toLocaleString('en-IN');
+  }
+  function formatBilling(type) {
+    var labels = {
+      'one-time': 'one-time',
+      monthly: 'per month',
+      'per-project': 'per project',
+      'starting-from': 'starting from',
+      custom: 'custom quote'
+    };
+    return labels[type] || 'per project';
+  }
+  function renderPrice(item) {
+    if (item.priceLabel) return esc(item.priceLabel);
+    var prefix = item.billingType === 'starting-from' ? formatBilling(item.billingType) + ' ' : '';
+    return prefix + formatINR(item.inrPrice);
+  }
+  function renderPriceCard(item) {
+    return '<article class="price-card glass spot' + (item.badge ? ' is-popular' : '') + '">' +
+      (item.badge ? '<span class="price-badge">' + esc(item.badge) + '</span>' : '') +
+      '<h4>' + esc(item.name) + '</h4>' +
+      '<p class="price-description">' + esc(item.description) + '</p>' +
+      '<div class="price-amount">' + renderPrice(item) + '</div>' +
+      '<div class="price-billing">' + (item.billingType === 'starting-from' ? formatBilling(item.category === 'marketing' ? 'monthly' : 'per-project') : formatBilling(item.billingType)) + '</div>' +
+      (item.recurringPrice ? '<div class="price-recurring">+ ' + formatINR(item.recurringPrice) + ' ' + formatBilling(item.recurringBillingType) + '</div>' : '') +
+      (item.priceNote ? '<p class="price-extra">' + esc(item.priceNote) + '</p>' : '') +
+      '<ul class="price-features">' + item.features.map(function (feature) { return '<li>' + esc(feature) + '</li>'; }).join('') + '</ul>' +
+      '<a class="btn-tr ' + (item.badge ? 'btn-tr-primary' : 'btn-tr-ghost') + ' price-cta" href="' + esc(item.targetLink) + '" data-pricing-service="' + esc(item.category) + '">' + esc(item.ctaLabel) + ' →</a>' +
+      '</article>';
+  }
+  var pricing = window.TRESUNDIOS_PRICING;
+  var pricingContent = document.getElementById('pricing-content');
+  var pricingTabs = document.querySelectorAll('[data-pricing-tab]');
+  function renderPricing(view) {
+    var html = '';
+    if (view === 'services' || view === 'events') {
+      pricing.categories.forEach(function (category) {
+        if (view === 'events' && category.id !== 'events') return;
+        var services = pricing.services.filter(function (item) { return item.category === category.id; });
+        if (!services.length) return;
+        html += '<section class="price-group" aria-labelledby="price-group-' + esc(category.id) + '"><h3 id="price-group-' + esc(category.id) + '">' + esc(category.name) + '</h3>' + (category.description ? '<p class="price-group-description">' + esc(category.description) + '</p>' : '') + '<div class="price-grid">' + services.map(renderPriceCard).join('') + '</div></section>';
+      });
+    } else {
+      var packages = view === 'marketing' ? pricing.marketingPackages : pricing.launchPackages;
+      html = '<div class="price-grid price-package-grid">' + packages.map(renderPriceCard).join('') + '</div>';
+    }
+    pricingContent.innerHTML = html;
+    document.querySelectorAll('#pricing-content .spot').forEach(function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+    var activeTab = document.querySelector('[data-pricing-tab="' + view + '"]');
+    pricingContent.setAttribute('aria-labelledby', activeTab.id);
+  }
+  pricingTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      pricingTabs.forEach(function (other) {
+        var selected = other === tab;
+        other.setAttribute('aria-selected', String(selected));
+        other.tabIndex = selected ? 0 : -1;
+      });
+      renderPricing(tab.dataset.pricingTab);
+    });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight' && e.key !== 'Home' && e.key !== 'End') return;
+      e.preventDefault();
+      var tabs = Array.prototype.slice.call(pricingTabs);
+      var index = tabs.indexOf(tab);
+      var next = e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : (index + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+      tabs[next].focus();
+      tabs[next].click();
+    });
+  });
+  if (pricing && pricingContent) renderPricing('services');
+  document.addEventListener('click', function (e) {
+    var cta = e.target.closest('[data-pricing-service]');
+    var service = document.getElementById('f-svc');
+    if (cta && service) {
+      var value = cta.dataset.pricingService;
+      var serviceNames = { marketing: 'Digital Marketing', branding: 'Graphic Design', photography: 'Product Photography', websites: 'Website / App', events: 'Event Management', 'marketing-packages': 'Digital Marketing', 'launch-packages': 'Multiple Services' };
+      service.value = serviceNames[value] || 'Multiple Services';
+    }
+  });
+
   /* ---------- Enquiry form ----------
      Static hosting has no mail backend, so the form prepares the enquiry for the visitor to send.
      To deliver it directly, point the form at a form service (Formspree, Web3Forms) or a PHP mail
@@ -168,7 +257,7 @@
     var d = new FormData(form), name = (d.get('name') || '').trim(), ct = (d.get('contact') || '').trim();
     out.hidden = false; out.className = 'note'; out.innerHTML = '';
     if (!name || !ct) { out.textContent = 'Please add your name and an email or phone number so we can reply.'; return; }
-    var msg = 'Hi Tresundios,\n\nName: ' + name + '\nBusiness: ' + (d.get('biz') || '-') + '\nContact: ' + ct + '\nService: ' + d.get('svc') + '\n\n' + (d.get('msg') || '');
+    var msg = 'Hi Tresundios,\n\nName: ' + name + '\nBusiness: ' + (d.get('biz') || '-') + '\nContact: ' + ct + '\nService: ' + d.get('svc') + '\nBudget: ' + d.get('budget') + '\n\n' + (d.get('msg') || '');
     var p = document.createElement('div');
     p.innerHTML = '<b>Your enquiry is ready.</b> Copy it and send it to navis@tresundios.com (or navis@tresundios.in), or WhatsApp +91 98408 55590.';
     var pre = document.createElement('pre'); pre.textContent = msg;

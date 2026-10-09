@@ -12,6 +12,7 @@ No build step and no server code is needed. Fonts load from Google Fonts.
 
 Editing
 - Case studies: edit the CASES list at the top of assets/js/main.js.
+- Pricing: edit the INR service and package data in assets/js/pricing.js.
 - Colours: the brand tokens are at the top of assets/css/style.css (--tr-red, --tr-charcoal...).
 - Contact form: static hosting cannot send email, so the form prepares the enquiry text
   for the visitor to copy. To receive enquiries directly, set the form's action to a form
