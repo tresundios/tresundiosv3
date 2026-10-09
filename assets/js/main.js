@@ -258,22 +258,23 @@
   });
 
   /* ---------- Enquiry form ----------
-     Static hosting has no mail backend, so the form prepares the enquiry for the visitor to send.
-     To deliver it directly, point the form at a form service (Formspree, Web3Forms) or a PHP mail
-     script on your server and remove the preventDefault() below. */
+     Posts to send-enquiry.php (PHP mail() to navis@tresundios.com). Needs PHP hosting. */
   var form = document.getElementById('enq'), out = document.getElementById('out');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var d = new FormData(form), name = (d.get('name') || '').trim(), ct = (d.get('contact') || '').trim();
+    var btn = form.querySelector('button[type=submit]');
     out.hidden = false; out.className = 'note'; out.innerHTML = '';
     if (!name || !ct) { out.textContent = 'Please add your name and an email or phone number so we can reply.'; return; }
-    var msg = 'Hi Tresundios,\n\nName: ' + name + '\nBusiness: ' + (d.get('biz') || '-') + '\nContact: ' + ct + '\nService: ' + d.get('svc') + '\nBudget: ' + d.get('budget') + '\n\n' + (d.get('msg') || '');
-    var p = document.createElement('div');
-    p.innerHTML = '<b>Your enquiry is ready.</b> Copy it and send it to navis@tresundios.com (or navis@tresundios.in), or WhatsApp +91 98408 55590.';
-    var pre = document.createElement('pre'); pre.textContent = msg;
-    var b = document.createElement('button'); b.type = 'button'; b.className = 'copy'; b.textContent = 'Copy enquiry';
-    b.addEventListener('click', function () { copy(msg, b); });
-    out.append(p, pre, b);
+    var label = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(form.action, { method: 'POST', body: d })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (j) {
+        if (j.ok) { out.textContent = j.message; form.reset(); }
+        else out.textContent = j.message || 'Sorry, we could not send your enquiry. Please email navis@tresundios.com or WhatsApp +91 98408 55590.';
+      })
+      .catch(function () { out.textContent = 'Could not reach the server. Please email navis@tresundios.com or WhatsApp +91 98408 55590.'; })
+      .then(function () { btn.disabled = false; btn.textContent = label; });
   });
 
   /* ---------- Footer year ---------- */

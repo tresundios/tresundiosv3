@@ -20,3 +20,5 @@ Editing
   the "Enquiry form" block of main.js.
 
 Project photos in assets/img/work/ are free Unsplash images (unsplash.com/license).
+
+Enquiry form: send-enquiry.php emails navis@tresundios.com via PHP mail(). Upload it with index.html to PHP hosting; set FROM_EMAIL to an address on your domain.

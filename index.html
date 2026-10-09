@@ -353,7 +353,7 @@
           </div>
         </div>
         <div class="col-lg-7">
-          <form class="enquiry glass" id="enq" novalidate>
+          <form class="enquiry glass" id="enq" method="post" action="send-enquiry.php" novalidate>
             <span class="eyebrow">Project enquiry</span>
             <div class="row g-3 mt-1">
               <div class="col-sm-6"><label class="form-label" for="f-name">Your name</label><input class="form-control" id="f-name" name="name" required autocomplete="name" placeholder="Priya Raman"></div>
@@ -364,7 +364,8 @@
               <div class="col-sm-6"><label class="form-label" for="f-budget">Project budget</label>
                 <select class="form-select" id="f-budget" name="budget"><option>Under ₹25,000</option><option>₹25,000–₹75,000</option><option>₹75,000–₹2,00,000</option><option>₹2,00,000+</option></select></div>
               <div class="col-12"><label class="form-label" for="f-msg">Tell us about it</label><textarea class="form-control" id="f-msg" name="msg" placeholder="We're opening a second outlet in March and need launch posts, a menu redesign and a small opening event."></textarea></div>
-              <div class="col-12"><button class="btn-tr btn-tr-primary" type="submit">Prepare my enquiry →</button></div>
+              <div class="d-none" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+              <div class="col-12"><button class="btn-tr btn-tr-primary" type="submit">Send my enquiry →</button></div>
               <div class="col-12"><div id="out" hidden></div></div>
             </div>
           </form>
