@@ -38,7 +38,7 @@
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <a class="btn-tr btn-tr-primary" href="#contact">Book a free call</a>
+        <button class="btn-tr btn-tr-primary" id="bookCall" type="button" data-book-call aria-haspopup="dialog" aria-controls="bookingModal">Book a free call</button>
       </div>
     </nav>
   </div>
@@ -373,6 +373,21 @@
     </div>
   </section>
 </main>
+
+<!-- ============ BOOKING MODAL ============ -->
+<div class="modal fade case-modal booking-modal" id="bookingModal" tabindex="-1" aria-labelledby="bookingTitle" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="crumb me-auto" id="bookingTitle">Book a free call</h2>
+        <button class="icon-btn" type="button" data-bs-dismiss="modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <iframe class="booking-calendar" title="Choose an appointment time with Tresundios" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2GnvxGc6tvSy7rdz_-gh0JcEbZTitpzowP02UMh5_0KQVD-Ub3LToyQQm3baN4L1kc3a8hgTvC?gv=true" loading="eager"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ============ CASE STUDY MODAL ============ -->
 <div class="modal fade case-modal" id="caseModal" tabindex="-1" aria-labelledby="caseTitle" aria-hidden="true">

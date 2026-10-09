@@ -18,3 +18,5 @@ Editing
   for the visitor to copy. To receive enquiries directly, set the form's action to a form
   service (Formspree, Web3Forms) or a PHP mail script, and remove e.preventDefault() in
   the "Enquiry form" block of main.js.
+
+Project photos in assets/img/work/ are free Unsplash images (unsplash.com/license).

@@ -5,37 +5,37 @@
   /* ---------- Case studies (source: tresundios.com/case-studies) ---------- */
   var RED = '#c74634', BLACK = '#000000', CHAR = '#333333', STONE = '#6b6b6b', SILVER = '#a6a6a6';
   var CASES = [
-    { id: 'uptown', client: 'UptownIndia UK', title: 'UptownIndia UK, tea e-commerce', cat: 'Web Development · E-commerce', dur: '3 months', market: 'United Kingdom', t1: RED, t2: CHAR, tag: 'UK · Tea', kind: 'win',
+    { id: 'uptown', img: 'assets/img/work/uptown.jpg', alt: 'Cup of masala chai tea on a wooden table', client: 'UptownIndia UK', title: 'UptownIndia UK, tea e-commerce', cat: 'Web Development · E-commerce', dur: '3 months', market: 'United Kingdom', t1: RED, t2: CHAR, tag: 'UK · Tea', kind: 'win',
       problem: 'UptownIndia needed an online store to sell its premium tea blends to UK customers, with clear product categories and secure payments.',
       solution: 'We built an easy-to-use e-commerce platform with detailed showcases for its specialty teas (Masala, Strawberry and Chocolate Chai), secure payment integration and a simple ordering flow, backed by professional product photography and a mobile-responsive design.',
       tech: ['Laravel', 'PHP', 'Bootstrap', 'HTML', 'CSS', 'JavaScript', 'Photoshop'],
       results: [['Visibility', 'A modern, secure store that raised product visibility and made buying simple for UK tea lovers.'], ['Engagement', 'Smooth online payments and mobile shopping lifted customer engagement and satisfaction.'], ['Brand', 'Professional imagery and clear categories set UptownIndia apart in a crowded market.']],
       live: 'https://uptownindia.com/ecom/', src: 'https://tresundios.com/case-studies/uptownindia-uk-tea-ecommerce' },
-    { id: 'tef', client: 'TEF Community', title: 'TEF Kuwait Walkathon App', cat: 'Flutter Development', dur: '4 months', market: 'Kuwait', t1: CHAR, t2: RED, tag: 'KW', kind: 'phone',
+    { id: 'tef', img: 'assets/img/work/tef.jpg', alt: 'Person walking on a road between grass', client: 'TEF Community', title: 'TEF Kuwait Walkathon App', cat: 'Flutter Development', dur: '4 months', market: 'Kuwait', t1: CHAR, t2: RED, tag: 'KW', kind: 'phone',
       problem: 'TEF Kuwait needed a mobile app to track and encourage community participation in its 30-day walking challenge, with real-time step tracking and participant engagement.',
       solution: 'We built a cross-platform mobile app with automated step tracking, live leaderboards and social features, plus gamification that keeps participants motivated for all 30 days.',
       tech: ['Flutter', 'Dart'],
       results: [['Motivation', 'Members track and compare their walking, which turned the challenge into friendly competition.'], ['Participation', 'Live leaderboards and gamification raised participation and excitement around the event.'], ['Reach', 'One cross-platform build works on every member’s phone, iOS or Android.']],
       src: 'https://tresundios.com/case-studies/tef-kuwait-walkathan-app' },
-    { id: 'legily', client: 'Legily UK', title: 'Legily UK, serum product portal', cat: 'Web Design & Development', dur: '2 months', market: 'United Kingdom', t1: SILVER, t2: RED, tag: 'UK', kind: 'win',
+    { id: 'legily', img: 'assets/img/work/legily.jpg', alt: 'Dropper serum bottle on a yellow background', client: 'Legily UK', title: 'Legily UK, serum product portal', cat: 'Web Design & Development', dur: '2 months', market: 'United Kingdom', t1: SILVER, t2: RED, tag: 'UK', kind: 'win',
       problem: 'Legily UK needed a premium e-commerce portal for its anti-stress serums that kept its minimal brand look while improving engagement.',
       solution: 'We designed a modern landing experience in Figma built around product storytelling, with clear navigation for Shop, About and the Affiliate programme, refreshed product photography and a fully responsive build.',
       tech: ['Figma', 'Bootstrap 5', 'HTML', 'CSS', 'JavaScript', 'Photoshop'],
       results: [['Brand', 'A polished, easy-to-navigate portal that strengthens how Legily presents its products.'], ['Conversion', 'Responsive design and better imagery improved engagement and conversion.'], ['Partners', 'A simpler shopping and affiliate experience for customers and partners.']],
       src: 'https://tresundios.com/case-studies/legily-uk-serum-portal' },
-    { id: 'maria', client: 'Maria Beauty Care', title: 'Maria Beauty Care, salon website', cat: 'Web Development', dur: '2 months', market: 'Salon & beauty', t1: RED, t2: BLACK, tag: 'Salon', kind: 'win',
+    { id: 'maria', img: 'assets/img/work/maria.jpg', alt: 'Modern hair salon interior with chairs and mirrors', client: 'Maria Beauty Care', title: 'Maria Beauty Care, salon website', cat: 'Web Development', dur: '2 months', market: 'Salon & beauty', t1: RED, t2: BLACK, tag: 'Salon', kind: 'win',
       problem: 'Maria Beauty Care needed a professional website to showcase its premium beauty services and take bookings online, while keeping its upscale image.',
       solution: 'We built a custom WordPress theme with an elegant, premium design, online appointment scheduling, a portfolio gallery, clearer service categories and a mobile-responsive layout.',
       tech: ['WordPress', 'PHP', 'Custom theme', 'Bootstrap', 'HTML', 'CSS', 'JavaScript'],
       results: [['Bookings', 'A stronger online presence that brings in new clients and appointments.'], ['Image', 'An elegant, mobile-friendly design that reinforces the salon’s premium positioning.'], ['Operations', 'Online booking and service listings streamline day-to-day client handling.']],
       src: 'https://tresundios.com/case-studies/maria-beauty-care-portfolio' },
-    { id: 'beyon', client: 'Beyon Education', title: 'Beyon Education, study abroad portal', cat: 'Web Development', dur: '5 months', market: 'Netherlands universities', t1: CHAR, t2: SILVER, tag: 'NL', kind: 'win',
+    { id: 'beyon', img: 'assets/img/work/beyon.jpg', alt: 'People and bicycles on a street in Amsterdam', client: 'Beyon Education', title: 'Beyon Education, study abroad portal', cat: 'Web Development', dur: '5 months', market: 'Netherlands universities', t1: CHAR, t2: SILVER, tag: 'NL', kind: 'win',
       problem: 'Beyon Education needed a platform to present its European education consultancy, especially for Netherlands universities, with detailed information and a simpler student application process.',
       solution: 'We built a dynamic WordPress portal with university profiles, course catalogues, student testimonials, an interactive application system and student resource sections, covering 12+ Dutch universities.',
       tech: ['WordPress', 'Elementor', 'PHP', 'CSS', 'JavaScript'],
       results: [['12+', 'Dutch universities profiled with courses and admission details.'], ['Engagement', 'Interactive features and rich content improved student engagement and applications.'], ['Scalable', 'A flexible WordPress and Elementor setup the team can update and grow easily.']],
       src: 'https://tresundios.com/case-studies/beyon-education-study-abroad-portal' },
-    { id: 'robomed', client: 'RoboMed Innovations', title: 'RoboMed Innovations, website redesign', cat: 'Web Design & Development', dur: '6 weeks', market: 'B2B healthcare', t1: STONE, t2: RED, tag: 'B2B', kind: 'win',
+    { id: 'robomed', img: 'assets/img/work/robomed.jpg', alt: 'Operating room with surgical table and medical equipment', client: 'RoboMed Innovations', title: 'RoboMed Innovations, website redesign', cat: 'Web Design & Development', dur: '6 weeks', market: 'B2B healthcare', t1: STONE, t2: RED, tag: 'B2B', kind: 'win',
       problem: 'RoboMed Innovations needed a modern online presence that shows off its medical-device portfolio and engages B2B healthcare buyers.',
       solution: 'We rebuilt the site around product display and corporate buyers’ needs, with professional product photography, a clean clinical visual style and responsive layouts for desktop and mobile.',
       tech: ['Photoshop', 'HTML', 'CSS', 'JavaScript'],
@@ -46,10 +46,7 @@
   function esc(t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
 
   function thumb(c) {
-    var inner = c.kind === 'phone'
-      ? '<div class="win phone"><div class="mini-title" style="font-size:9px">Day 18 / 30</div><div class="kpi" style="font-size:20px">8,412</div><div class="s" style="width:90%"></div><div class="s" style="width:70%"></div></div>'
-      : '<div class="win"><div class="dots"><i></i><i></i><i></i></div><div class="h"></div><div class="s" style="width:80%"></div><div class="s" style="width:55%"></div><div class="row-mini"><b></b><b></b><b></b></div></div>';
-    return '<div class="thumb" style="--t1:' + c.t1 + ';--t2:' + c.t2 + '"><span class="mono-big">' + esc(c.tag) + '</span>' + inner + '</div>';
+    return '<div class="thumb" style="--t1:' + c.t1 + ';--t2:' + c.t2 + '"><img src="' + c.img + '" alt="' + esc(c.alt) + '" loading="lazy" width="1200" height="800" onerror="this.remove()"><span class="mono-big">' + esc(c.tag) + '</span></div>';
   }
 
   /* Paint card thumbnails from the data so colours live in one place */
@@ -131,7 +128,20 @@
   var nav = document.getElementById('mainNav');
   if (nav && window.bootstrap) {
     nav.addEventListener('click', function (e) {
-      if (e.target.closest('.nav-link') && nav.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(nav).hide();
+      if (e.target.closest('.nav-link, [data-book-call]') && nav.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(nav).hide();
+    });
+  }
+
+  /* ---------- Direct appointment calendar modal ---------- */
+  var bookingModalEl = document.getElementById('bookingModal');
+  var bookingTrigger = document.querySelector('[data-book-call]');
+  if (bookingModalEl && bookingTrigger && window.bootstrap) {
+    bookingTrigger.addEventListener('click', function () {
+      bootstrap.Modal.getOrCreateInstance(bookingModalEl).show();
+    });
+    bookingModalEl.addEventListener('show.bs.modal', function () {
+      var calendar = bookingModalEl.querySelector('.booking-calendar');
+      if (calendar && !calendar.hasAttribute('src')) calendar.setAttribute('src', calendar.dataset.src);
     });
   }
 
